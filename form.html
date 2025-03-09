@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Have a Question? 📌</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+        .card {
+            background-color: #111;
+            border: none;
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(255, 184, 0, 0.2);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .btn-primary {
+            background-color: #ffb800;
+            border: none;
+            font-weight: bold;
+            padding: 12px 20px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #e6a600;
+        }
+        .form-control, .form-select {
+            background-color: #222;
+            border: 1px solid #444;
+            color: #fff;
+        }
+        .form-control::placeholder, .form-select option {
+            color: #bbb;
+        }
+        .text-warning {
+            font-weight: bold;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .warning-text {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <img src="images/form.png" alt="Banner Image" class="img-fluid rounded shadow mb-3">
+        </div>
+
+        <div class="card shadow p-4">
+            <h2 class="text-center text-warning">📌 Have a Question?</h2>
+            <p class="text-center text-light">We’re here to help! If you have any questions, feel free to ask. Whether it's about my projects, services, or anything else, just drop your query below. I’ll get back to you as soon as possible!</p>
+            
+            <form id="questionForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name <span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    <small class="warning-text" id="nameWarning">Please enter your name for a better response.</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email <span style="color: red;">*</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="question" class="form-label">What is your question? <span style="color: red;">*</span></label>
+                    <textarea class="form-control" id="question" rows="4" placeholder="Type your question here..." required></textarea>
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="project" class="form-label">Which project is your question related to?</label>
+                    <select class="form-select" id="project">
+                        <option selected disabled>Choose a project</option>
+                        <option>Chatbot</option>
+                        <option>Sales Forecast- Time Series Forecasting</option>
+                        <option>Netflix Data Analysis</option>
+                        <option>Diwali Sales Data Analysis</option>
+                        <option>Hand Tracking Project</option>
+                        <option>Power BI Sales dashboard Project</option>
+                        <option>Other (please specify)</option>
+                    </select>
+                </div> -->
+
+                <!-- <div class="mb-3">
+                    <label class="form-label">Would you like a response?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="yes" value="Yes" required>
+                        <label class="form-check-label" for="yes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="response" id="no" value="No">
+                        <label class="form-check-label" for="no">No</label>
+                    </div>
+                </div> -->
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('questionForm').addEventListener('submit', function(event) {
+            let nameInput = document.getElementById('name');
+            let nameWarning = document.getElementById('nameWarning');
+
+            if (nameInput.value.trim() === "") {
+                nameWarning.style.display = "block";
+                event.preventDefault();
+            } else {
+                nameWarning.style.display = "none";
+                alert('Your question has been submitted successfully!');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
